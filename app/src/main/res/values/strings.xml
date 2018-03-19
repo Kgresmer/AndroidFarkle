@@ -2,4 +2,7 @@
     <string name="app_name">Farkle Scoreboard</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="READY">Ready!</string>
+    <string name="add_existing_player">Add Existing Player</string>
+    <string name="add_new_player">Add New Player</string>
 </resources>
