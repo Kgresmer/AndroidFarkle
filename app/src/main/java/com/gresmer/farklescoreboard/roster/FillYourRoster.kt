@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Button
 
 import com.gresmer.farklescoreboard.R
 
@@ -21,7 +22,8 @@ class FillYourRoster : AppCompatActivity() {
 
         val rosterPlayerAdapter: RosterPlayerAdapter
         val rosterList = ArrayList<RosterPlayer>()
-        val recyclerView = findViewById<RecyclerView>(R.id.recycle_view);
+        val recyclerView = findViewById<RecyclerView>(R.id.recycle_view)
+
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
 

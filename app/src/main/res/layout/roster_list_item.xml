@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,21 +10,49 @@
     android:paddingRight="16dp"
     android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            tools:text="Some date" />
 
-        <TextView
-            android:id="@+id/wins"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="255dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:text="Kevin"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:text="Wins: 0 Losses: 0" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:text="Best Score: 10000 Worst Score: 10000" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/removeFromRosterButton"
+            style="removeFromRoster"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:maxLines="5" />
+            android:layout_height="64dp"
+            android:background="@android:color/holo_orange_light"
+            android:elevation="2dp"
+            android:text="X"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
     </LinearLayout>
+
+
+</LinearLayout>

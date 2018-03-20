@@ -24,8 +24,8 @@ class RosterPlayerAdapter(private val context: Context, private val rosterPlayer
     override fun onBindViewHolder(holder: RosterPlayerViewHolder, position: Int) {
         val rosterPlayer = rosterPlayers[position]
 
-        holder.nameTextView.text = rosterPlayer.name
-        holder.winsTextView.text = rosterPlayer.wins
+//        holder.nameTextView.text = rosterPlayer.name
+//        nameholder.winsTextView.text = rosterPlayer.wins
         // for an  image
         //  this method is deprecated
         // holder.imageView.setImageDrawable(context.getResources().getDrawable(imageId));
@@ -39,11 +39,6 @@ class RosterPlayerAdapter(private val context: Context, private val rosterPlayer
 
 class RosterPlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    var nameTextView: TextView
-    var winsTextView: TextView
-
     init {
-        nameTextView = itemView.findViewById(R.id.name)
-        winsTextView = itemView.findViewById(R.id.wins)
     }
 }
