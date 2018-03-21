@@ -2,56 +2,74 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/roster_list_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="16dp"
-    android:id="@+id/roster_list_item"
-    android:paddingRight="16dp"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="68dp"
+        android:background="@color/teal"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:paddingBottom="4dp"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        tools:targetApi="lollipop">
 
         <LinearLayout
-            android:layout_width="255dp"
+            android:layout_width="272dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="254dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:paddingStart="6dp"
                 android:text="Kevin"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="254dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Wins: 0 Losses: 0" />
+                android:paddingLeft="12dp"
+                android:paddingStart="12dp"
+                android:text="Wins: 0 Losses: 0"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="254dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Best Score: 10000 Worst Score: 10000" />
+                android:paddingLeft="12dp"
+                android:paddingStart="12dp"
+                android:text="Best Score: 10000"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/removeFromRosterButton"
             style="removeFromRoster"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:background="@android:color/holo_orange_light"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:background="@drawable/remove_button"
             android:elevation="2dp"
-            android:text="X"
+            android:radius="10dp"
+            android:text="@string/remove_dash"
             android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textSize="60sp" />
     </LinearLayout>
 
 
