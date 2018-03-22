@@ -27,14 +27,14 @@ class FillYourRoster : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        rosterList.add(RosterPlayer(1, "Kevin", "3"))
-        rosterList.add(RosterPlayer(2, "Sigrid", "1"))
-        rosterList.add(RosterPlayer(3, "Kip", "6"))
-        rosterList.add(RosterPlayer(4, "Taylor", "6"))
-        rosterList.add(RosterPlayer(5, "Alex", "6"))
-        rosterList.add(RosterPlayer(6, "Laura", "6"))
-        rosterList.add(RosterPlayer(7, "Mark", "6"))
-        rosterList.add(RosterPlayer(8, "Louise", "6"))
+        rosterList.add(RosterPlayer(1, "Kevin", 3, 4, 10100))
+        rosterList.add(RosterPlayer(2, "Sigrid", 1, 2, 10200))
+        rosterList.add(RosterPlayer(3, "Kip", 6, 4, 10300))
+        rosterList.add(RosterPlayer(4, "Taylor", 6, 2, 11000))
+        rosterList.add(RosterPlayer(5, "Alex", 3, 1, 9700))
+        rosterList.add(RosterPlayer(6, "Laura", 4, 7, 9800))
+        rosterList.add(RosterPlayer(7, "Mark", 8, 7, 10150))
+        rosterList.add(RosterPlayer(8, "Louise", 3, 9, 10350))
 
         rosterPlayerAdapter = RosterPlayerAdapter(this, rosterList)
         recyclerView.adapter = rosterPlayerAdapter
