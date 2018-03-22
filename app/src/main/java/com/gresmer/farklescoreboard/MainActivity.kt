@@ -7,25 +7,19 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.EditText
 import com.gresmer.farklescoreboard.roster.FillYourRoster
+import java.util.*
+import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    fun sendMessage(view: View) {
-        val editText = findViewById<EditText>(R.id.editText)
-        val message = editText.text.toString()
-        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
-        }
-        startActivity(intent)
-    }
-
-    fun goToRoster(view: View) {
         val intent = Intent(this, FillYourRoster::class.java)
-        startActivity(intent)
+        val timer = Timer("schedule", true);
+        timer.schedule( 2500) {
+            startActivity(intent)
+        }
     }
+
 }
