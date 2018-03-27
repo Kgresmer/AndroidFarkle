@@ -49,7 +49,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:background="@color/orange"
+            android:background="@drawable/cancel_add_player_button"
             android:text="@string/cancel_button"
             android:textColor="@android:color/white" />
 
@@ -64,7 +64,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:background="@color/teal"
+            android:background="@drawable/add_player_button"
             android:text="@string/add_button"
             android:textColor="@android:color/white" />
     </LinearLayout>
