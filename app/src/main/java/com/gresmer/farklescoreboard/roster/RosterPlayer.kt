@@ -5,7 +5,7 @@ package com.gresmer.farklescoreboard.roster
  */
 
 class RosterPlayer(
-        val id: Int,
+        val id: Long,
         val name: String,
         val wins: Int,
         val losses: Int,

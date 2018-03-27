@@ -3,12 +3,10 @@ package com.gresmer.farklescoreboard
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.view.View
-import android.widget.EditText
 import com.gresmer.farklescoreboard.roster.FillYourRoster
 import java.util.*
 import kotlin.concurrent.schedule
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,3 +21,5 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+

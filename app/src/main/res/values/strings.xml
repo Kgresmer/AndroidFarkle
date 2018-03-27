@@ -9,4 +9,8 @@
     <string name="winsAndLosses">
         Wins: %1$d | Losses: %2$d
     </string>
+    <string name="add_player_title">Enter a new player\'s name</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="add_button">Add</string>
+    <string name="name_placeholder">Kevin</string>
 </resources>
