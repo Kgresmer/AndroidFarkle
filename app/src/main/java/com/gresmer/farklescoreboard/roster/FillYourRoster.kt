@@ -12,6 +12,7 @@ import com.gresmer.farklescoreboard.R
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.support.v4.content.ContextCompat
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import java.util.*
@@ -35,19 +36,12 @@ class FillYourRoster : AppCompatActivity() {
         val dialog = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.add_player, null)
         val nameInput = dialogView.findViewById<EditText>(R.id.player_name_input)
+        val addButton = dialogView.findViewById<Button>(R.id.add_player_button)
+        val cancelButton = dialogView.findViewById<Button>(R.id.cancel_add_player_button)
         dialog.setView(dialogView)
-        dialog.setPositiveButton("Add", { dialogInterface: DialogInterface, i: Int -> });
-        dialog.setNegativeButton("Cancel", { dialogInterface: DialogInterface, i: Int -> });
         val customDialog = dialog.create()
         customDialog.show()
-        val darkerTealColor = ContextCompat.getColor(this, R.color.darkerTeal)
-        val orangeColor = ContextCompat.getColor(this, R.color.orange)
-        val whiteColor = ContextCompat.getColor(this, R.color.white)
 
-        val addButton = customDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-        addButton.setBackgroundColor(darkerTealColor)
-        addButton.setTextColor(whiteColor)
-        addButton.setTextSize(18f)
         addButton.setOnClickListener({
             if (nameInput.text.length > 0) {
                 rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0))
@@ -57,12 +51,6 @@ class FillYourRoster : AppCompatActivity() {
                 Toast.makeText(baseContext, "Invalid", Toast.LENGTH_SHORT)
             }
         })
-
-        val cancelButton = customDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-        cancelButton.setBackgroundColor(orangeColor)
-        cancelButton.setTextColor(whiteColor)
-        cancelButton.setPadding(4,0,8,0)
-        cancelButton.setTextSize(18f)
         cancelButton.setOnClickListener({
             customDialog.dismiss()
         })
