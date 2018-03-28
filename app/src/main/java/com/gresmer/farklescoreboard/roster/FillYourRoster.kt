@@ -29,12 +29,14 @@ class FillYourRoster : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fill_your_roster)
-
+        Bundle data = getIntent().getExtras()
+        rosterList = data.getParcelableArrayList("ROSTER")
+        renderRecyclerRosterView()
     }
     
     fun onAddExistingPlayer(view: View) {
         Intent intent = new Intent(this, ExistingPlayersList::class.java)
-        intent.putExtra("ROSTER", rosterList);
+        intent.putParcelableArrayList("ROSTER", rosterList);
         startActivity(intent);
     }
 
