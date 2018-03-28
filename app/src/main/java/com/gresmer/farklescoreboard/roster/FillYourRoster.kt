@@ -31,6 +31,12 @@ class FillYourRoster : AppCompatActivity() {
         setContentView(R.layout.activity_fill_your_roster)
 
     }
+    
+    fun onAddExistingPlayer(view: View) {
+        Intent intent = new Intent(this, ExistingPlayersList::class.java)
+        intent.putExtra("ROSTER", rosterList);
+        startActivity(intent);
+    }
 
     fun onAddNewPlayer(view: View) {
         val dialog = AlertDialog.Builder(this)
