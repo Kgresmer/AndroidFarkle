@@ -10,11 +10,10 @@ import android.view.View
 import com.gresmer.farklescoreboard.R
 
 import android.app.AlertDialog
-import android.content.DialogInterface
-import android.support.v4.content.ContextCompat
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
 import java.util.*
 
 
@@ -24,20 +23,20 @@ import java.util.*
 
 class FillYourRoster : AppCompatActivity() {
 
-    val rosterList = ArrayList<RosterPlayer>()
+    var rosterList = ArrayList<RosterPlayer>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fill_your_roster)
-        Bundle data = getIntent().getExtras()
-        rosterList = data.getParcelableArrayList("ROSTER")
+        val data = getIntent().getExtras()
+        if (data != null) rosterList = data.getParcelableArrayList("ROSTER")
         renderRecyclerRosterView()
     }
     
     fun onAddExistingPlayer(view: View) {
-        Intent intent = new Intent(this, ExistingPlayersList::class.java)
-        intent.putParcelableArrayList("ROSTER", rosterList);
-        startActivity(intent);
+        val intent = Intent(this, ExistingPlayersList::class.java)
+        intent.putParcelableArrayListExtra("ROSTER", rosterList)
+        startActivity(intent)
     }
 
     fun onAddNewPlayer(view: View) {
@@ -52,7 +51,7 @@ class FillYourRoster : AppCompatActivity() {
 
         addButton.setOnClickListener({
             if (nameInput.text.length > 0) {
-                rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0))
+                rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0, true))
                 renderRecyclerRosterView()
                 customDialog.dismiss()
             } else {

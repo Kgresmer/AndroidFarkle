@@ -33,6 +33,7 @@
         android:layout_marginStart="8dp"
         android:text="@string/add_existing_player"
         android:textColor="@android:color/white"
+        android:onClick="onAddExistingPlayer"
         android:textSize="15sp"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/ready_button"

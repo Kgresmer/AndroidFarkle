@@ -23,10 +23,24 @@
         android:paddingBottom="4dp"
         tools:targetApi="lollipop">
 
+        <Button
+            android:id="@+id/editExistingPlayerButton"
+            style="removeFromRoster"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_button"
+            android:elevation="4dp"
+            android:radius="10dp"
+            android:text="@string/edit_text"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
+            android:layout_weight="5"
             android:orientation="vertical">
 
             <TextView
@@ -60,18 +74,33 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/removeFromRosterButton"
+            android:id="@+id/addExistingPlayerToRosterButton"
             style="removeFromRoster"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:layout_weight="1.5"
-            android:background="@drawable/edit_button"
-            android:elevation="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/add_button"
+            android:elevation="4dp"
             android:radius="10dp"
-            android:text="@string/remove_dash"
+            android:text="@string/add_button"
             android:textColor="@android:color/white"
-            android:textSize="60sp" />
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/dropExistingPlayerToRosterButton"
+            style="removeFromRoster"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/drop_button"
+            android:elevation="4dp"
+            android:radius="10dp"
+            android:text="@string/drop_text"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
 

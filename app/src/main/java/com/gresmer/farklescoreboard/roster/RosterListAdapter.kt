@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import com.gresmer.farklescoreboard.R
-import org.w3c.dom.Text
 
 /**
  * Binds Data to the view
@@ -19,7 +18,9 @@ class RosterPlayerAdapter(private val context: Context, private val rosterPlayer
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RosterPlayerViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.roster_list_item, null)
+        val view = inflater.inflate(R.layout.roster_list_item, parent, false)
+        val parentRView = parent as RecyclerView
+        view.setLayoutParams(RecyclerView.LayoutParams(parentRView.getLayoutManager().getWidth(), RecyclerView.LayoutParams.WRAP_CONTENT))
         return RosterPlayerViewHolder(view)
     }
 

@@ -13,4 +13,7 @@
     <string name="cancel_button">Cancel</string>
     <string name="add_button">Add</string>
     <string name="name_placeholder">Kevin</string>
+    <string name="edit_text">EDIT</string>
+    <string name="drop_text">Drop</string>
+    <string name="done_text">Done</string>
 </resources>
