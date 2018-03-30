@@ -11,12 +11,17 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.gresmer.farklescoreboard.R
 import com.gresmer.farklescoreboard.roster.RosterPlayer
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 
 /**
  * Binds Data to the view
  */
 
 class ExistingPlayerListAdapter(private val context: Context, private val existingPlayers: List<RosterPlayer>) : RecyclerView.Adapter<ExistingPlayerViewHolder>() {
+
+    private val clickSubject = PublishSubject.create<RosterPlayer>()
+    val clickEvent: Observable<RosterPlayer> = clickSubject
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExistingPlayerViewHolder {
         val inflater = LayoutInflater.from(context)
@@ -39,6 +44,7 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
 
     private fun addOrDropPlayer(linearlayout: LinearLayout, existingPlayer: RosterPlayer) {
         existingPlayer.isOnRoster = !existingPlayer.isOnRoster
+        clickSubject.onNext(existingPlayer)
         setListItemBackgroundColor(existingPlayer, linearlayout)
     }
 
