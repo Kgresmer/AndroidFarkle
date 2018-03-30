@@ -16,4 +16,6 @@
     <string name="edit_text">EDIT</string>
     <string name="drop_text">Drop</string>
     <string name="done_text">Done</string>
+    <string name="roster_activity_title">Fill Your Roster</string>
+    <string name="existing_p_activity_title">Add Existing Players</string>
 </resources>

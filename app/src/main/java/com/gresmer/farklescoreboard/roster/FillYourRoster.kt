@@ -17,10 +17,6 @@ import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
 import java.util.*
 
 
-/**
- * Created by kgresmer on 3/18/18.
- */
-
 class FillYourRoster : AppCompatActivity() {
 
     var rosterList = ArrayList<RosterPlayer>()
@@ -76,22 +72,3 @@ class FillYourRoster : AppCompatActivity() {
     }
 
 }
-
-//class AddPlayerDialogFragment : DialogFragment() {
-//    override fun onCreateDialog(savedInstanceState: Bundle): Dialog {
-//
-//        val builder = AlertDialog.Builder(getActivity())
-//        // Get the layout inflater
-//        val inflater = getActivity().getLayoutInflater()
-//
-//        // Inflate and set the layout for the dialog
-//        // Pass null as the parent view because its going in the dialog layout
-//        builder.setView(inflater.inflate(R.layout.add_player, null))
-//                // Add action buttons
-//                .setPositiveButton(R.string.add_button, DialogInterface.OnClickListener { dialog, id ->
-//                    // sign in the user ...
-//                })
-//                .setNegativeButton(R.string.cancel_button, DialogInterface.OnClickListener { dialog, id -> this@AddPlayerDialogFragment.getDialog().cancel() })
-//        return builder.create()
-//    }
-//}

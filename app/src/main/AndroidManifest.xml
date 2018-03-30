@@ -18,8 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".roster.FillYourRoster"></activity>
-        <activity android:name=".ExistingPlayers.ExistingPlayersList">
+        <activity android:name=".roster.FillYourRoster"
+            android:label="@string/roster_activity_title"
+            ></activity>
+        <activity android:name=".ExistingPlayers.ExistingPlayersList"
+            android:label="@string/existing_p_activity_title">
         </activity>
     </application>
 

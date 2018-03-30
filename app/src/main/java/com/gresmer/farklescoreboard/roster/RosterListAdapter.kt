@@ -25,6 +25,9 @@ class RosterPlayerAdapter(private val context: Context, private val rosterPlayer
     }
 
     override fun onBindViewHolder(holder: RosterPlayerViewHolder, position: Int) {
+
+        // TODO hide elements that arent active
+
         val rosterPlayer = rosterPlayers[position]
 
         holder.nameTextView.text = rosterPlayer.name
