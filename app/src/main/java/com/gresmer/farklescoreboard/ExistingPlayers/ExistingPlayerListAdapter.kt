@@ -17,10 +17,12 @@ import io.reactivex.subjects.PublishSubject
  * Binds Data to the view
  */
 
-class ExistingPlayerListAdapter(private val context: Context, private val existingPlayers: List<RosterPlayer>) : RecyclerView.Adapter<ExistingPlayerViewHolder>() {
+class ExistingPlayerListAdapter(private val context: Context, private val existingPlayers: MutableList<RosterPlayer>) : RecyclerView.Adapter<ExistingPlayerViewHolder>() {
 
     private val clickSubject = PublishSubject.create<RosterPlayer>()
+    private val clickDeleteSubject = PublishSubject.create<RosterPlayer>()
     val clickEvent: Observable<RosterPlayer> = clickSubject
+    val clickDeleteEvent: Observable<RosterPlayer> = clickDeleteSubject
     val inflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExistingPlayerViewHolder {
@@ -32,7 +34,6 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
 
     override fun onBindViewHolder(holder: ExistingPlayerViewHolder, position: Int) {
         val existingPlayer = existingPlayers[position]
-
 
         setListItemBackgroundColor(existingPlayer, holder.linearLayout)
         holder.editButton.setOnClickListener({button -> editPlayer(button as Button, existingPlayer)})
@@ -49,6 +50,7 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
         nameInput.setText(existingPlayer.name)
         val editButton = dialogView.findViewById<Button>(R.id.edit_player_button)
         val cancelButton = dialogView.findViewById<Button>(R.id.cancel_edit_player_button)
+        val deleteButton = dialogView.findViewById<Button>(R.id.delete_player_button)
         dialog.setView(dialogView)
         val customDialog = dialog.create()
         customDialog.show()
@@ -71,6 +73,28 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
         })
         cancelButton.setOnClickListener({
             customDialog.dismiss()
+        })
+
+        deleteButton.setOnClickListener({
+            val deleteDialog = AlertDialog.Builder(context)
+            val deleteDialogView = inflater.inflate(R.layout.delete_player, null)
+            val cancelDeletePlayerButton = deleteDialogView.findViewById<Button>(R.id.cancel_delete_player_button)
+            val deletePlayerButton = deleteDialogView.findViewById<Button>(R.id.delete_player_button)
+            deleteDialog.setView(deleteDialogView)
+            val customDeleteDialog = deleteDialog.create()
+            customDeleteDialog.show()
+
+            cancelDeletePlayerButton.setOnClickListener({
+                customDeleteDialog.dismiss()
+            })
+
+            deletePlayerButton.setOnClickListener({
+                existingPlayers.remove(existingPlayer)
+                clickDeleteSubject.onNext(existingPlayer)
+                customDeleteDialog.dismiss()
+                customDialog.dismiss()
+            })
+
         })
     }
 

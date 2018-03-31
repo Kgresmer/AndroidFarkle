@@ -17,11 +17,13 @@ import com.gresmer.farklescoreboard.roster.FillYourRoster
 import com.gresmer.farklescoreboard.roster.RosterPlayer
 import io.reactivex.disposables.Disposable
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ExistingPlayersList : AppCompatActivity() {
 
-    private var playerList = ArrayList<RosterPlayer>()
-    private var subscribe: Disposable? = null
+    private var playerList: MutableList<RosterPlayer> = ArrayList<RosterPlayer>()
+    private var playerChangeSubscription: Disposable? = null
+    private var playerDeleteSubscription: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +35,7 @@ class ExistingPlayersList : AppCompatActivity() {
 
     }
 
-    private fun setDoneButtonBackgroundColor(playerList: ArrayList<RosterPlayer>) {
+    private fun setDoneButtonBackgroundColor(playerList: MutableList<RosterPlayer>) {
         val doneButton = findViewById<Button>(R.id.doneButton)
         for (i in 0..playerList.size - 1) {
             if (playerList.get(i).isOnRoster) {
@@ -59,15 +61,23 @@ class ExistingPlayersList : AppCompatActivity() {
     }
 
     private fun setupItemClick(rosterPlayerAdapter: ExistingPlayerListAdapter) {
-        subscribe = rosterPlayerAdapter.clickEvent
+        playerChangeSubscription = rosterPlayerAdapter.clickEvent
                 .subscribe({
-                    p -> updatePlayerList(p)
+                    p -> updatePlayerList(p, false)
+                })
+        playerDeleteSubscription = rosterPlayerAdapter.clickDeleteEvent
+                .subscribe({
+                    p -> updatePlayerList(p, true)
                 })
     }
 
-    private fun updatePlayerList(player: RosterPlayer?) {
+    private fun updatePlayerList(player: RosterPlayer?, deletePlayer: Boolean) {
         val doneButton = findViewById<Button>(R.id.doneButton)
         var someoneIsOnRoster = false;
+
+        if (deletePlayer) {
+            playerList.remove(player)
+        }
 
         for (i in 0..playerList.size - 1) {
 
@@ -91,7 +101,7 @@ class ExistingPlayersList : AppCompatActivity() {
 
     fun onDoneAddingExistingPlayers(view: View) {
         val intent = Intent(this, FillYourRoster::class.java)
-        intent.putParcelableArrayListExtra("ROSTER", playerList)
+        intent.putParcelableArrayListExtra("ROSTER", ArrayList(playerList))
         startActivity(intent)
     }
 }
