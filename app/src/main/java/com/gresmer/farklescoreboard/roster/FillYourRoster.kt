@@ -67,7 +67,9 @@ class FillYourRoster : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        rosterPlayerAdapter = RosterPlayerAdapter(this, rosterList)
+        val filteredList = rosterList.filter { it.isOnRoster }
+
+        rosterPlayerAdapter = RosterPlayerAdapter(this, filteredList)
         recyclerView.adapter = rosterPlayerAdapter
     }
 
