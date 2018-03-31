@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:id="@+id/existing_player_list_item"
-        android:layout_height="80dp"
+        android:layout_height="84dp"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
@@ -28,7 +28,7 @@
             android:id="@+id/editExistingPlayerButton"
             style="removeFromRoster"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:layout_margin="12dp"
             android:layout_weight="1"
             android:background="@drawable/edit_button"

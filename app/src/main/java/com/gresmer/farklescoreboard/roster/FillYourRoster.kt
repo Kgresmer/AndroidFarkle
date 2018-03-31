@@ -46,7 +46,7 @@ class FillYourRoster : AppCompatActivity() {
         customDialog.show()
 
         addButton.setOnClickListener({
-            if (nameInput.text.length > 0) {
+            if (nameInput.text.length > 0 && nameInput.text.length < 15) {
                 rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0, true))
                 renderRecyclerRosterView()
                 customDialog.dismiss()
