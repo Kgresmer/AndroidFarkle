@@ -55,9 +55,13 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
 
         editButton.setOnClickListener({
             if (nameInput.text.length > 0 && nameInput.text.length < 15) {
-                existingPlayer.name = nameInput.text.toString()
-                clickSubject.onNext(existingPlayer)
-                customDialog.dismiss()
+                if (checkIfNameIsTaken(nameInput.text.toString())) {
+                    existingPlayer.name = nameInput.text.toString()
+                    clickSubject.onNext(existingPlayer)
+                    customDialog.dismiss()
+                } else {
+                    Toast.makeText(context, "That name is already taken", Toast.LENGTH_LONG).show()
+                }
             } else {
                 if (nameInput.text.isEmpty())
                     Toast.makeText(context, "You can't have a blank name", Toast.LENGTH_LONG).show()
@@ -68,6 +72,11 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
         cancelButton.setOnClickListener({
             customDialog.dismiss()
         })
+    }
+
+    private fun checkIfNameIsTaken(name: String): Boolean {
+        val potentialExistingPlayer = existingPlayers.find { it.name.toLowerCase() == name.toLowerCase() }
+        return potentialExistingPlayer == null
     }
 
     private fun addOrDropPlayer(linearlayout: LinearLayout, existingPlayer: RosterPlayer) {

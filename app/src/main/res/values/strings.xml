@@ -19,4 +19,5 @@
     <string name="roster_activity_title">Fill Your Roster</string>
     <string name="existing_p_activity_title">Add Existing Players</string>
     <string name="edit_player_title">Edit Player Name</string>
+    <string name="delete_text">Delete</string>
 </resources>
