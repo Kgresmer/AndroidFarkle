@@ -51,7 +51,10 @@ class FillYourRoster : AppCompatActivity() {
                 renderRecyclerRosterView()
                 customDialog.dismiss()
             } else {
-                Toast.makeText(baseContext, "Invalid", Toast.LENGTH_SHORT)
+                if (nameInput.text.isEmpty())
+                    Toast.makeText(baseContext, "You can't have a blank name", Toast.LENGTH_LONG).show()
+                else if (nameInput.text.length > 14)
+                    Toast.makeText(baseContext, "That name is too long!", Toast.LENGTH_LONG).show()
             }
         })
         cancelButton.setOnClickListener({
