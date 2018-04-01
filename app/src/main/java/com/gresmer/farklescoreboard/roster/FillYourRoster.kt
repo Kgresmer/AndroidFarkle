@@ -18,6 +18,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
+import com.gresmer.farklescoreboard.SortOrder
 import java.io.*
 import java.util.*
 
@@ -48,12 +49,8 @@ class FillYourRoster : AppCompatActivity() {
             println(e.printStackTrace());
         }
 
-
-        print(rosterList)
-
         val data = getIntent().getExtras()
         if (data != null) rosterList = data.getParcelableArrayList("ROSTER")
-        print(rosterList)
 
         renderRecyclerRosterView()
     }
@@ -142,8 +139,10 @@ class FillYourRoster : AppCompatActivity() {
     }
 
     fun onReadyButtonClick(view: View) {
-        println("saving to file")
         saveRosterData()
+        val intent = Intent(this, SortOrder::class.java)
+        intent.putParcelableArrayListExtra("ROSTER", rosterList)
+        startActivity(intent)
     }
 
     private fun saveRosterData() {

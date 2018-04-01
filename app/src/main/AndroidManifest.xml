@@ -18,21 +18,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".roster.FillYourRoster"
+        <activity
+            android:name=".roster.FillYourRoster"
             android:label="@string/roster_activity_title"
-            android:parentActivityName=".MainActivity"
-            >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".ExistingPlayers.ExistingPlayersList"
+        <activity
+            android:name=".ExistingPlayers.ExistingPlayersList"
             android:label="@string/existing_p_activity_title"
-            android:parentActivityName=".MainActivity"
-            >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".SortOrder"
+            android:label="Set Player Order"
+            android:parentActivityName=".roster.FillYourRoster">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".roster.FillYourRoster" />
         </activity>
     </application>
 
