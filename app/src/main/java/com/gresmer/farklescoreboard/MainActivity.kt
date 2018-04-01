@@ -1,9 +1,11 @@
 package com.gresmer.farklescoreboard
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
 import com.gresmer.farklescoreboard.roster.FillYourRoster
@@ -24,7 +26,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onRulesClicked(view:  View) {
-        Toast.makeText(this, "Rules", Toast.LENGTH_SHORT).show()
+        val dialog = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.display_rules_dialog, null)
+        val closeRulesTopButton = dialogView.findViewById<Button>(R.id.close_rules_title_button)
+        dialog.setView(dialogView)
+        val customDialog = dialog.create()
+        customDialog.show()
+
+        closeRulesTopButton.setOnClickListener({
+            customDialog.dismiss()
+        })
     }
 
     fun onScoreAGameClicked(view:  View) {

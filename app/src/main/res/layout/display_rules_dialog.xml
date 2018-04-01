@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkerTeal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="24dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:text="Rules"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/close-rules-title-button"
+            android:layout_width="66dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/close_rules_button"
+            android:text="@string/close_text"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="Scoring  \n\n 1 - 100\n 5 - 50\n Three 1's - 1000\n Three 2's - 200\n Three 3's - 300\n Three 4's - 400\n Three 5's - 500\n Three 6's - 600\n 1-2-3-4-5-6 - 3000\n 3 pairs - 1500\n 4 of a Kind - 1000\n 5 of a Kind - 2000\n 6 of a Kind - 3000\n 2 Triplets - 2500\n 4 of a Kind + Pair - 1500\n\nTo win at Farkle you must be the player with the highest score above 10,000 points on the final round of play. \n\nEach player takes turns rolling the dice. On your turn, you roll all six dice. A 1 or a 5, three of a kind, three pairs, or a six-dice straight earn points. You must select at least one scoring die. You can then pass and bank your points, or risk the points earned this turn and roll the remaining dice. \n\nScoring is based on selected dice in each roll. You cannot earn points by combining dice from different rolls. \n\nIf none of your dice rolled earn points, you get a Farkle. Three Farkles in a row and you lose 1,000 points. \n\nYou continue rolling until you either Pass or Farkle. Then the next player rolls the six dice. Play continues until it is your turn again. \n\nExample: Your first rolls shows 1, 2, 3, 3, 5, and 6. You keep the 1 and the 5 for 150 points. You then opt to roll the remaining four dice. On that roll you get 3, 4, 4, and 5. You select the 5 and decide to Pass and bank your points. \n\nThe final round starts as soon as any player reaches 10,000 or more points." />
+
+</LinearLayout>
