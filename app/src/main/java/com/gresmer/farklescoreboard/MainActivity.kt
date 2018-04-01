@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val intent = Intent(this, FillYourRoster::class.java)
         val timer = Timer("schedule", true);
-        timer.schedule( 2500) {
+        timer.schedule( 5500) {
             startActivity(intent)
         }
     }
