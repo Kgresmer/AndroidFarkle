@@ -11,6 +11,7 @@ import com.gresmer.farklescoreboard.R
 
 import android.app.AlertDialog
 import android.opengl.Visibility
+import android.support.v4.content.ContextCompat
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -69,6 +70,15 @@ class FillYourRoster : AppCompatActivity() {
         val emptyRosterBanner = findViewById<TextView>(R.id.roster_empty_banner)
         val emptyRosterInstructionsBanner = findViewById<TextView>(R.id.instructions_banner)
         val readyButton = findViewById<Button>(R.id.ready_button)
+        val existingPlayersButton = findViewById<Button>(R.id.existing_player_button)
+
+        existingPlayersButton.isEnabled = !rosterList.isEmpty()
+        if (existingPlayersButton.isEnabled) {
+            existingPlayersButton.setBackgroundColor(ContextCompat.getColor(this, R.color.darkerTeal))
+        } else {
+            existingPlayersButton.setBackgroundColor(ContextCompat.getColor(this, R.color.lightTeal))
+        }
+
         val filteredList = rosterList.filter { it.isOnRoster }
 
         if (filteredList.isNotEmpty()) {
@@ -89,6 +99,10 @@ class FillYourRoster : AppCompatActivity() {
             emptyRosterInstructionsBanner.visibility = View.VISIBLE
             readyButton.visibility = View.GONE
         }
+    }
+
+    override fun onBackPressed() {
+        // disable
     }
 
 }

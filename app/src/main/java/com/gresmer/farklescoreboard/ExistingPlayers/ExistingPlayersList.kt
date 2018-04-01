@@ -104,4 +104,8 @@ class ExistingPlayersList : AppCompatActivity() {
         intent.putParcelableArrayListExtra("ROSTER", ArrayList(playerList))
         startActivity(intent)
     }
+
+    override fun onBackPressed() {
+        Toast.makeText(this, "Click 'Done' to return to roster", Toast.LENGTH_SHORT).show()
+    }
 }
