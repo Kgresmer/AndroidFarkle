@@ -76,10 +76,14 @@ class FillYourRoster : AppCompatActivity() {
 
         addButton.setOnClickListener({
             if (nameInput.text.length > 0 && nameInput.text.length < 15) {
-                rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0, true))
-                renderRecyclerRosterView()
-                customDialog.dismiss()
-                saveRosterData()
+                if (checkIfNameIsTaken(nameInput.text.toString())) {
+                    rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0, true))
+                    renderRecyclerRosterView()
+                    customDialog.dismiss()
+                    saveRosterData()
+                } else {
+                    Toast.makeText(this, "That name is already taken", Toast.LENGTH_LONG).show()
+                }
             } else {
                 if (nameInput.text.isEmpty())
                     Toast.makeText(baseContext, "You can't have a blank name", Toast.LENGTH_LONG).show()
@@ -90,6 +94,11 @@ class FillYourRoster : AppCompatActivity() {
         cancelButton.setOnClickListener({
             customDialog.dismiss()
         })
+    }
+
+    private fun checkIfNameIsTaken(name: String): Boolean {
+        val potentialExistingPlayer = rosterList.find { it.name.toLowerCase() == name.toLowerCase() }
+        return potentialExistingPlayer == null
     }
 
     fun renderRecyclerRosterView() {
