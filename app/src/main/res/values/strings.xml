@@ -21,4 +21,6 @@
     <string name="edit_player_title">Edit Player Name</string>
     <string name="delete_text">Delete</string>
     <string name="delete_player_warning">Are you sure you want to delete this player? All of their stats will be deleted. They will be gone forever! :(</string>
+    <string name="roster_empty">Your roster is empty.</string>
+    <string name="roster_instructions">Use the buttons below to add players.</string>
 </resources>

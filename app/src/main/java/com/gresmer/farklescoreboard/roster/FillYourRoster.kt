@@ -10,8 +10,10 @@ import android.view.View
 import com.gresmer.farklescoreboard.R
 
 import android.app.AlertDialog
+import android.opengl.Visibility
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
 import java.util.*
@@ -63,17 +65,30 @@ class FillYourRoster : AppCompatActivity() {
     }
 
     fun renderRecyclerRosterView() {
-        val rosterPlayerAdapter: RosterPlayerAdapter
-
         val recyclerView = findViewById<RecyclerView>(R.id.recycle_view)
-
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
+        val emptyRosterBanner = findViewById<TextView>(R.id.roster_empty_banner)
+        val emptyRosterInstructionsBanner = findViewById<TextView>(R.id.instructions_banner)
+        val readyButton = findViewById<Button>(R.id.ready_button)
         val filteredList = rosterList.filter { it.isOnRoster }
 
-        rosterPlayerAdapter = RosterPlayerAdapter(this, filteredList)
-        recyclerView.adapter = rosterPlayerAdapter
+        if (filteredList.isNotEmpty()) {
+            recyclerView.visibility = View.VISIBLE
+            emptyRosterBanner.visibility = View.INVISIBLE
+            emptyRosterInstructionsBanner.visibility = View.INVISIBLE
+            readyButton.visibility = View.VISIBLE
+
+            val rosterPlayerAdapter: RosterPlayerAdapter
+
+            recyclerView.setHasFixedSize(true)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            rosterPlayerAdapter = RosterPlayerAdapter(this, filteredList)
+            recyclerView.adapter = rosterPlayerAdapter
+        } else {
+            recyclerView.visibility = View.INVISIBLE
+            emptyRosterBanner.visibility = View.VISIBLE
+            emptyRosterInstructionsBanner.visibility = View.VISIBLE
+            readyButton.visibility = View.GONE
+        }
     }
 
 }
