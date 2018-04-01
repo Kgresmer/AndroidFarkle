@@ -2,6 +2,7 @@ package com.gresmer.farklescoreboard.roster
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.io.Serializable
 
 /**
  * Created by kgresmer on 3/18/18.
@@ -14,7 +15,7 @@ class RosterPlayer(
         var wins: Int,
         var losses: Int,
         var bestScore: Int,
-        var isOnRoster: Boolean) : Parcelable {
+        var isOnRoster: Boolean) : Parcelable, Serializable {
     constructor(parcel: Parcel) : this(
             parcel.readLong(),
             parcel.readString(),

@@ -12,6 +12,7 @@ import com.gresmer.farklescoreboard.R
 import com.gresmer.farklescoreboard.roster.RosterPlayer
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import java.io.ObjectOutputStream
 
 /**
  * Binds Data to the view
@@ -24,6 +25,7 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
     val clickEvent: Observable<RosterPlayer> = clickSubject
     val clickDeleteEvent: Observable<RosterPlayer> = clickDeleteSubject
     val inflater = LayoutInflater.from(context)
+    val FILE_NAME = "playerData";
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExistingPlayerViewHolder {
         val view = inflater.inflate(R.layout.existing_player_list_item, parent, false)
@@ -119,6 +121,15 @@ class ExistingPlayerListAdapter(private val context: Context, private val existi
 
     override fun getItemCount(): Int {
         return existingPlayers.size
+    }
+
+    private fun saveRosterData() {
+        context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE).use {
+            val objectOuputStream = ObjectOutputStream(it)
+            for (player in existingPlayers) {
+                objectOuputStream.writeObject(player)
+            }
+        }
     }
 
 }

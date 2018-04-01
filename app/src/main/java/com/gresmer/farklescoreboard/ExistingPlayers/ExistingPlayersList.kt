@@ -1,6 +1,7 @@
 package com.gresmer.farklescoreboard.ExistingPlayers
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -108,4 +109,5 @@ class ExistingPlayersList : AppCompatActivity() {
     override fun onBackPressed() {
         Toast.makeText(this, "Click 'Done' to return to roster", Toast.LENGTH_SHORT).show()
     }
+
 }

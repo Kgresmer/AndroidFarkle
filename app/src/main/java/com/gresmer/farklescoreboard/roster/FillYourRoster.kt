@@ -10,6 +10,7 @@ import android.view.View
 import com.gresmer.farklescoreboard.R
 
 import android.app.AlertDialog
+import android.content.Context
 import android.opengl.Visibility
 import android.support.v4.content.ContextCompat
 import android.widget.Button
@@ -17,18 +18,43 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
+import java.io.*
 import java.util.*
 
 
 class FillYourRoster : AppCompatActivity() {
 
     var rosterList = ArrayList<RosterPlayer>()
+    val FILE_NAME = "playerData";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fill_your_roster)
+
+        val file = File(this.filesDir, FILE_NAME)
+        try {
+            File(this.filesDir, FILE_NAME).inputStream().use {
+                val inputS = ObjectInputStream(it)
+                var cont = true;
+                while (cont) {
+                    val player = inputS.readObject()
+                    if (player != null)
+                        rosterList.add(player as RosterPlayer)
+                    else
+                        cont = false
+                }
+            }
+        } catch (e: Exception) {
+            println(e.printStackTrace());
+        }
+
+
+        print(rosterList)
+
         val data = getIntent().getExtras()
         if (data != null) rosterList = data.getParcelableArrayList("ROSTER")
+        print(rosterList)
+
         renderRecyclerRosterView()
     }
     
@@ -53,6 +79,7 @@ class FillYourRoster : AppCompatActivity() {
                 rosterList.add(RosterPlayer(Date().time, nameInput.text.toString(), 0, 0, 0, true))
                 renderRecyclerRosterView()
                 customDialog.dismiss()
+                saveRosterData()
             } else {
                 if (nameInput.text.isEmpty())
                     Toast.makeText(baseContext, "You can't have a blank name", Toast.LENGTH_LONG).show()
@@ -103,6 +130,20 @@ class FillYourRoster : AppCompatActivity() {
 
     override fun onBackPressed() {
         // disable
+    }
+
+    fun onReadyButtonClick(view: View) {
+        println("saving to file")
+        saveRosterData()
+    }
+
+    private fun saveRosterData() {
+        this.openFileOutput(FILE_NAME, Context.MODE_PRIVATE).use {
+            val objectOuputStream = ObjectOutputStream(it)
+            for (player in rosterList) {
+                objectOuputStream.writeObject(player)
+            }
+        }
     }
 
 }

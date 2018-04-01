@@ -18,6 +18,7 @@
         android:background="@color/orange"
         android:textSize="28sp"
         android:textAllCaps="false"
+        android:onClick="onReadyButtonClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
