@@ -24,4 +24,5 @@
     <string name="roster_empty">Your roster is empty.</string>
     <string name="roster_instructions">Use the buttons below to add players.</string>
     <string name="close_text">close</string>
+    <string name="sort_order_instructions">click, hold and drag to change the order</string>
 </resources>
