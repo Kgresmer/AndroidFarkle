@@ -1,7 +1,6 @@
-package com.gresmer.farklescoreboard.roster
+package com.gresmer.farklescoreboard.RosterList
 
 import android.content.Context
-import android.content.res.Resources
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import com.gresmer.farklescoreboard.R
+import com.gresmer.farklescoreboard.RosterPlayer
 
 /**
  * Binds Data to the view

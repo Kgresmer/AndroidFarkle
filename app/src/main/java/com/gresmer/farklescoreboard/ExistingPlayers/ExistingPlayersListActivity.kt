@@ -1,7 +1,5 @@
 package com.gresmer.farklescoreboard.ExistingPlayers
 
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,17 +8,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TableRow
 import android.widget.Toast
 import com.gresmer.farklescoreboard.R
-import com.gresmer.farklescoreboard.roster.FillYourRoster
-import com.gresmer.farklescoreboard.roster.RosterPlayer
+import com.gresmer.farklescoreboard.RosterList.RosterListActivity
+import com.gresmer.farklescoreboard.RosterPlayer
 import io.reactivex.disposables.Disposable
-import java.util.*
 import kotlin.collections.ArrayList
 
-class ExistingPlayersList : AppCompatActivity() {
+class ExistingPlayersListActivity : AppCompatActivity() {
 
     private var playerList: MutableList<RosterPlayer> = ArrayList<RosterPlayer>()
     private var playerChangeSubscription: Disposable? = null
@@ -101,7 +96,7 @@ class ExistingPlayersList : AppCompatActivity() {
     }
 
     fun onDoneAddingExistingPlayers(view: View) {
-        val intent = Intent(this, FillYourRoster::class.java)
+        val intent = Intent(this, RosterListActivity::class.java)
         intent.putParcelableArrayListExtra("ROSTER", ArrayList(playerList))
         startActivity(intent)
     }

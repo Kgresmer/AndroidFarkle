@@ -1,4 +1,4 @@
-package com.gresmer.farklescoreboard.roster
+package com.gresmer.farklescoreboard.RosterList
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,19 +11,19 @@ import com.gresmer.farklescoreboard.R
 
 import android.app.AlertDialog
 import android.content.Context
-import android.opengl.Visibility
 import android.support.v4.content.ContextCompat
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
-import com.gresmer.farklescoreboard.SortOrder
+import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersListActivity
+import com.gresmer.farklescoreboard.RosterPlayer
+import com.gresmer.farklescoreboard.SortOrder.SortOrderActivity
 import java.io.*
 import java.util.*
 
 
-class FillYourRoster : AppCompatActivity() {
+class RosterListActivity : AppCompatActivity() {
 
     var rosterList = ArrayList<RosterPlayer>()
     val FILE_NAME = "playerData";
@@ -56,7 +56,7 @@ class FillYourRoster : AppCompatActivity() {
     }
     
     fun onAddExistingPlayer(view: View) {
-        val intent = Intent(this, ExistingPlayersList::class.java)
+        val intent = Intent(this, ExistingPlayersListActivity::class.java)
         intent.putParcelableArrayListExtra("ROSTER", rosterList)
         startActivity(intent)
     }
@@ -140,7 +140,7 @@ class FillYourRoster : AppCompatActivity() {
 
     fun onReadyButtonClick(view: View) {
         saveRosterData()
-        val intent = Intent(this, SortOrder::class.java)
+        val intent = Intent(this, SortOrderActivity::class.java)
         intent.putParcelableArrayListExtra("ROSTER", rosterList)
         startActivity(intent)
     }

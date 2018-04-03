@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.gresmer.farklescoreboard.R
-import com.gresmer.farklescoreboard.roster.RosterPlayer
+import com.gresmer.farklescoreboard.RosterPlayer
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import java.io.ObjectOutputStream

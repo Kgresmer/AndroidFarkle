@@ -6,11 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
-import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersList
-import com.gresmer.farklescoreboard.roster.FillYourRoster
-import java.util.*
-import kotlin.concurrent.schedule
+import com.gresmer.farklescoreboard.ExistingPlayers.ExistingPlayersListActivity
+import com.gresmer.farklescoreboard.RosterList.RosterListActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onPlayerStatsClicked(view:  View) {
-        val intent = Intent(this, ExistingPlayersList::class.java)
+        val intent = Intent(this, ExistingPlayersListActivity::class.java)
         startActivity(intent)
     }
 
@@ -39,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onScoreAGameClicked(view:  View) {
-        val intent = Intent(this, FillYourRoster::class.java)
+        val intent = Intent(this, RosterListActivity::class.java)
         startActivity(intent)
     }
 

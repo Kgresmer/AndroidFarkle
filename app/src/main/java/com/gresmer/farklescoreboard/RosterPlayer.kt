@@ -1,4 +1,4 @@
-package com.gresmer.farklescoreboard.roster
+package com.gresmer.farklescoreboard
 
 import android.os.Parcel
 import android.os.Parcelable

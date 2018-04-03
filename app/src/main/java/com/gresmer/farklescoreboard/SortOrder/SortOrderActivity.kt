@@ -1,11 +1,12 @@
-package com.gresmer.farklescoreboard
+package com.gresmer.farklescoreboard.SortOrder
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.gresmer.farklescoreboard.roster.RosterPlayer
+import com.gresmer.farklescoreboard.R
+import com.gresmer.farklescoreboard.RosterPlayer
 import java.util.ArrayList
 
-class SortOrder : AppCompatActivity() {
+class SortOrderActivity : AppCompatActivity() {
 
     var rosterList = ArrayList<RosterPlayer>()
 

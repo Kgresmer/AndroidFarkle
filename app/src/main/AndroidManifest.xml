@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".roster.FillYourRoster"
+            android:name=".RosterList.RosterListActivity"
             android:label="@string/roster_activity_title"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -27,19 +27,19 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".ExistingPlayers.ExistingPlayersList"
+            android:name=".ExistingPlayers.ExistingPlayersListActivity"
             android:label="@string/existing_p_activity_title"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SortOrder"
+        <activity android:name=".SortOrder.SortOrderActivity"
             android:label="Set Player Order"
-            android:parentActivityName=".roster.FillYourRoster">
+            android:parentActivityName=".RosterList.RosterListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".roster.FillYourRoster" />
+                android:value=".RosterList.RosterListActivity" />
         </activity>
     </application>
 
