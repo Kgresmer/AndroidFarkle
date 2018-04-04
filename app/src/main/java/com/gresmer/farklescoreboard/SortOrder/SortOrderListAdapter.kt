@@ -16,7 +16,9 @@ class SortOrderListAdapter(private val context: Context, private val rosterList:
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.sort_order_list_item, parent, false)
         val parentView = parent as RecyclerView
-        view.setLayoutParams(RecyclerView.LayoutParams(parentView.layoutManager.width, RecyclerView.LayoutParams.WRAP_CONTENT))
+        val viewWidth: Int = (parentView.layoutManager.width * .95).toInt()
+        view.setLayoutParams(RecyclerView.LayoutParams(viewWidth, RecyclerView.LayoutParams.WRAP_CONTENT))
+        parent.offsetChildrenVertical(6)
         return SortOrderListViewHolder(view)
     }
 
