@@ -1,5 +1,6 @@
 package com.gresmer.farklescoreboard.ExistingPlayers
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import com.gresmer.farklescoreboard.R
 import com.gresmer.farklescoreboard.RosterList.RosterListActivity
 import com.gresmer.farklescoreboard.RosterPlayer
 import io.reactivex.disposables.Disposable
+import java.io.ObjectOutputStream
 import kotlin.collections.ArrayList
 
 class ExistingPlayersListActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class ExistingPlayersListActivity : AppCompatActivity() {
     private var playerList: MutableList<RosterPlayer> = ArrayList<RosterPlayer>()
     private var playerChangeSubscription: Disposable? = null
     private var playerDeleteSubscription: Disposable? = null
+    val FILE_NAME = "playerData";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +31,6 @@ class ExistingPlayersListActivity : AppCompatActivity() {
         if (data != null) playerList = data.getParcelableArrayList("ROSTER")
         setDoneButtonBackgroundColor(playerList)
         renderExistingPlayerRecyclerView()
-
     }
 
     private fun setDoneButtonBackgroundColor(playerList: MutableList<RosterPlayer>) {
@@ -73,6 +75,12 @@ class ExistingPlayersListActivity : AppCompatActivity() {
 
         if (deletePlayer) {
             playerList.remove(player)
+            this.openFileOutput(FILE_NAME, Context.MODE_PRIVATE).use {
+                val objectOuputStream = ObjectOutputStream(it)
+                for (player in playerList) {
+                    objectOuputStream.writeObject(player)
+                }
+            }
         }
 
         for (i in 0..playerList.size - 1) {

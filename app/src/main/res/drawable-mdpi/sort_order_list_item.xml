@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@color/white"/>
-            <corners android:radius="4dp" />
-        </shape>
-    </item>
+    <!--<item>-->
+        <!--<shape android:shape="rectangle">-->
+            <!--<solid android:color="@color/white"/>-->
+            <!--<corners android:radius="4dp" />-->
+        <!--</shape>-->
+    <!--</item>-->
 
-    <item
-        android:left="6dp"
-        android:right="6dp"
-        android:top="9dp"
-        android:bottom="6dp">
-        <shape android:shape="rectangle">
-            <solid android:color="@color/darkerTeal"/>
-            <corners android:radius="4dp" />
-        </shape>
-    </item>
+    <!--<item-->
+        <!--android:left="6dp"-->
+        <!--android:right="6dp"-->
+        <!--android:top="9dp"-->
+        <!--android:bottom="6dp">-->
+        <!--<shape android:shape="rectangle">-->
+            <!--<gradient-->
+                <!--android:startColor="#9444"-->
+                <!--android:endColor="#0000"-->
+                <!--android:type="linear"-->
+                <!--android:angle="90"> &lt;!&ndash; Change this value to have the correct shadow angle, must be multiple from 45 &ndash;&gt;-->
+            <!--</gradient>-->
+        <!--</shape>-->
+    <!--</item>-->
 
     <item
         android:left="12dp"
@@ -25,7 +29,7 @@
         android:bottom="12dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/teal"/>
-            <corners android:radius="4dp" />
+            <corners android:radius="8dp" />
         </shape>
     </item>
 </layer-list>

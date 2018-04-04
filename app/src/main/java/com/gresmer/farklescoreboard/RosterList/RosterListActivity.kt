@@ -32,23 +32,6 @@ class RosterListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fill_your_roster)
 
-        val file = File(this.filesDir, FILE_NAME)
-        try {
-            File(this.filesDir, FILE_NAME).inputStream().use {
-                val inputS = ObjectInputStream(it)
-                var cont = true;
-                while (cont) {
-                    val player = inputS.readObject()
-                    if (player != null)
-                        rosterList.add(player as RosterPlayer)
-                    else
-                        cont = false
-                }
-            }
-        } catch (e: Exception) {
-            println(e.printStackTrace());
-        }
-
         val data = getIntent().getExtras()
         if (data != null) rosterList = data.getParcelableArrayList("ROSTER")
 
