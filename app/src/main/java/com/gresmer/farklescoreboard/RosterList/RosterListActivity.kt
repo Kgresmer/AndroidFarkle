@@ -67,7 +67,7 @@ class RosterListActivity : AppCompatActivity() {
             } else {
                 if (nameInput.text.isEmpty())
                     Toast.makeText(baseContext, "You can't have a blank name", Toast.LENGTH_LONG).show()
-                else if (nameInput.text.length > 14)
+                else if (nameInput.text.length >= 15)
                     Toast.makeText(baseContext, "That name is too long!", Toast.LENGTH_LONG).show()
             }
         })
@@ -90,7 +90,7 @@ class RosterListActivity : AppCompatActivity() {
 
         existingPlayersButton.isEnabled = !rosterList.isEmpty()
         if (existingPlayersButton.isEnabled) {
-            existingPlayersButton.setBackgroundColor(ContextCompat.getColor(this, R.color.darkerTeal))
+            existingPlayersButton.setBackgroundColor(ContextCompat.getColor(this, R.color.teal))
         } else {
             existingPlayersButton.setBackgroundColor(ContextCompat.getColor(this, R.color.lightTeal))
         }
