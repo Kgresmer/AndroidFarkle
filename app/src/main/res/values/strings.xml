@@ -25,4 +25,6 @@
     <string name="roster_instructions">Use the buttons below to add players.</string>
     <string name="close_text">close</string>
     <string name="sort_order_instructions">click, hold and drag to change the order</string>
+    <string name="farkle_text">Farkle</string>
+    <string name="score_it_text">Score It!</string>
 </resources>

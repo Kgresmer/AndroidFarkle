@@ -1,5 +1,6 @@
 package com.gresmer.farklescoreboard.SortOrder
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.gresmer.farklescoreboard.R
 import com.gresmer.farklescoreboard.RosterPlayer
+import com.gresmer.farklescoreboard.Scoreboard.Scoreboard
 import java.util.ArrayList
 
 class SortOrderActivity : AppCompatActivity() {
@@ -39,7 +41,11 @@ class SortOrderActivity : AppCompatActivity() {
         val touchHelper = ItemTouchHelper(itemTouchHelperCallback)
         touchHelper.attachToRecyclerView(recyclerView)
         recyclerView.adapter = rosterPlayerAdapter
+    }
 
-
+    fun onReadyButtonClick(view: View) {
+        val intent = Intent(this, Scoreboard::class.java)
+        intent.putParcelableArrayListExtra("ROSTER", rosterList)
+        startActivity(intent)
     }
 }

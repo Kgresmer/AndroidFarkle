@@ -36,13 +36,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SortOrder.SortOrderActivity"
+        <activity
+            android:name=".SortOrder.SortOrderActivity"
             android:label="Set Player Order"
             android:parentActivityName=".RosterList.RosterListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RosterList.RosterListActivity" />
         </activity>
+        <activity android:name=".Scoreboard.Scoreboard"></activity>
     </application>
 
 </manifest>

@@ -24,6 +24,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:onClick="onReadyButtonClick"
         android:background="@color/orange"
         android:padding="5dp"
         android:text="Ready to score"
