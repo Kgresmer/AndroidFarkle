@@ -1,6 +1,7 @@
 package com.gresmer.farklescoreboard.SortOrder
 
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +29,6 @@ class SortOrderListAdapter(private val context: Context, private val rosterList:
 
     override fun onBindViewHolder(holder: SortOrderListViewHolder, position: Int) {
         val rosterPlayer = rosterList[position]
-
         holder.nameTextView.text = rosterPlayer.name
     }
 
