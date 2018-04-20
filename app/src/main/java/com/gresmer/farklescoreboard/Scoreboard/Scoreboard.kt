@@ -16,6 +16,5 @@ class Scoreboard : AppCompatActivity() {
         val data = getIntent().getExtras()
         if (data != null) rosterList = data.getParcelableArrayList("ROSTER")
 
-
     }
 }
