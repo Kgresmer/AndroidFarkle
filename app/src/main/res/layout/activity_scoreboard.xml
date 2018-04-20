@@ -45,6 +45,7 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="8dp"
                 android:background="@color/teal"
+                android:textColor="@color/white"
                 android:ems="10"
                 android:inputType="number" />
 

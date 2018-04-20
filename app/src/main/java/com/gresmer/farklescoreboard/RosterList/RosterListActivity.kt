@@ -34,7 +34,7 @@ class RosterListActivity : AppCompatActivity() {
 
         val data = getIntent().getExtras()
         if (data != null) rosterList = data.getParcelableArrayList("ROSTER")
-
+        print("back to roster " + rosterList)
         renderRecyclerRosterView()
     }
     

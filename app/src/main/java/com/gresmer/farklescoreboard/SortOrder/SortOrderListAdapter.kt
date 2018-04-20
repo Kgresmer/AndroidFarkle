@@ -1,7 +1,6 @@
 package com.gresmer.farklescoreboard.SortOrder
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +32,6 @@ class SortOrderListAdapter(private val context: Context, private val rosterList:
     }
 
     override fun onItemMoved(fromPosition: Int, toPosition: Int) {
-        println("on item moved" + fromPosition + " to " + toPosition)
         swapItems(fromPosition, toPosition)
     }
 
@@ -43,7 +41,6 @@ class SortOrderListAdapter(private val context: Context, private val rosterList:
     }
 
     private fun swapItems(positionFrom: Int, positionTo: Int) {
-        println("on item moved" + positionFrom + " to " + positionTo)
         Collections.swap(rosterList, positionFrom, positionTo)
         notifyItemMoved(positionFrom, positionTo)
     }
